@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 手指点击图标 -->
+    <path
+        android:fillColor="#FF5722"
+        android:pathData="M54,30 C60,30 64,34 64,40 L64,55 C68,55 72,58 72,62 L72,75 C72,85 64,90 54,90 C44,90 36,85 36,75 L36,62 C36,58 40,55 44,55 L44,40 C44,34 48,30 54,30 Z" />
+
+    <!-- 点击波纹 -->
+    <path
+        android:fillColor="#40FF5722"
+        android:pathData="M30,50 C30,37 40,26 54,26 C68,26 78,37 78,50 C78,63 68,74 54,74 C40,74 30,63 30,50 Z" />
+
+</vector>

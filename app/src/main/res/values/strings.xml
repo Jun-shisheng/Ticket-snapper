@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">抢票连点器</string>
+    <string name="accessibility_service_desc">用于在指定位置模拟点击操作，实现自动抢票功能。不会收集任何个人信息。</string>
+    <string name="box_bottom_right">右下抢票区域</string>
+    <string name="box_center">中间重试区域</string>
+    <string name="start">开启连点</string>
+    <string name="stop">暂停连点</string>
+    <string name="enable_retry_detect">仅识别重试文字时连点</string>
+    <string name="permission_overlay">悬浮窗权限</string>
+    <string name="permission_accessibility">无障碍服务</string>
+    <string name="grant_permission">授予权限</string>
+    <string name="permission_granted">已授予</string>
+    <string name="click_interval">点击间隔 (ms)</string>
+</resources>

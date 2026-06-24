@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#FF6200EE</color>
+    <color name="primaryVariant">#FF3700B3</color>
+    <color name="secondary">#FF03DAC5</color>
+    <color name="background">#FF121212</color>
+    <color name="surface">#FF1E1E1E</color>
+    <color name="onPrimary">#FFFFFFFF</color>
+    <color name="onBackground">#FFFFFFFF</color>
+    <color name="boxBottom">#40FF5722</color>
+    <color name="boxBottomBorder">#FFFF5722</color>
+    <color name="boxCenter">#402196F3</color>
+    <color name="boxCenterBorder">#FF2196F3</color>
+</resources>
