@@ -28,7 +28,8 @@ def _find_adb() -> str:
 
 ADB = _find_adb()
 PREFS_PATH = "/data/data/com.ticketsnap/shared_prefs/ticket_snap_prefs.xml"
-BOX_SIZE_DP = 72
+BOX1_SIZE_DP = 72
+BOX2_SIZE_DP = 144
 UI_DUMP_PATH = "/sdcard/ticketsnap_ui.xml"
 RETRY_CHECK_INTERVAL = 8
 UI_POLL_SEC = 1.5  # 框2 智能检测间隔（uiautomator dump 较慢）
@@ -216,7 +217,8 @@ def main():
     args = parser.parse_args()
 
     density = float(re.search(r"(\d+)", adb_shell("wm density")).group(1)) / 160.0
-    half = int(BOX_SIZE_DP / 2 * density)
+    half1 = int(BOX1_SIZE_DP / 2 * density)
+    half2 = int(BOX2_SIZE_DP / 2 * density)
 
     prefs = read_prefs()
     if args.turbo:
@@ -229,9 +231,9 @@ def main():
     x1, y1 = args.x1, args.y1
     x2, y2 = args.x2, args.y2
     if x1 is None and "box1_x" in prefs:
-        x1, y1 = int(prefs["box1_x"] + half), int(prefs["box1_y"] + half)
+        x1, y1 = int(prefs["box1_x"] + half1), int(prefs["box1_y"] + half1)
     if x2 is None and "box2_x" in prefs:
-        x2, y2 = int(prefs["box2_x"] + half), int(prefs["box2_y"] + half)
+        x2, y2 = int(prefs["box2_x"] + half2), int(prefs["box2_y"] + half2)
     if (x1 is None or y1 is None) and (x2 is None or y2 is None):
         print("Error: no click position set"); sys.exit(1)
 
@@ -240,9 +242,9 @@ def main():
     smart = not args.force_box2
 
     if args.turbo:
-        print(f"density:{density:.1f} half:{half}px mode:TURBO")
+        print(f"density:{density:.1f} half1:{half1}px half2:{half2}px mode:TURBO")
     else:
-        print(f"density:{density:.1f} half:{half}px interval:{args.interval}ms")
+        print(f"density:{density:.1f} half1:{half1}px half2:{half2}px interval:{args.interval}ms")
     if b1 and x1:
         print(f"[box1] always TURBO ({x1},{y1})" if args.turbo else f"[box1] always  ({x1},{y1})")
     if b2 and x2:

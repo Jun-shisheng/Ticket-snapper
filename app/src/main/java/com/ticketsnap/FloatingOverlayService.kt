@@ -39,6 +39,7 @@ class FloatingOverlayService : Service() {
     companion object {
         const val ACTION_STOP = "com.ticketsnap.STOP_SERVICE"
         const val BOX_SIZE_DP = 72
+        const val BOX2_SIZE_DP = 144
         const val TOGGLE_SIZE_DP = 56
         const val NOTIFICATION_ID = 1001
         const val CHANNEL_ID = "overlay_channel"
@@ -116,12 +117,14 @@ class FloatingOverlayService : Service() {
             PreferencesManager.box1Y = y.toFloat()
         }
 
-        box2View = createBox(boxSizePx, 2).also { box ->
-            val x = if (PreferencesManager.box2X < 0) screenWidth / 2 - boxSizePx / 2
+        val box2SizePx = (BOX2_SIZE_DP * resources.displayMetrics.density).toInt()
+
+        box2View = createBox(box2SizePx, 2).also { box ->
+            val x = if (PreferencesManager.box2X < 0) screenWidth / 2 - box2SizePx / 2
             else PreferencesManager.box2X.toInt()
-            val y = if (PreferencesManager.box2Y < 0) screenHeight / 2 - boxSizePx / 2
+            val y = if (PreferencesManager.box2Y < 0) screenHeight / 2 - box2SizePx / 2
             else PreferencesManager.box2Y.toInt()
-            addViewToWindow(box, x, y, boxSizePx, boxSizePx, hasFocus = false)
+            addViewToWindow(box, x, y, box2SizePx, box2SizePx, hasFocus = false)
             PreferencesManager.box2X = x.toFloat()
             PreferencesManager.box2Y = y.toFloat()
         }
